@@ -43,9 +43,7 @@
       padding: 28px 18px 50px;
     }
 
-    /* --------------------------
-       HEADER
-    -------------------------- */
+    /* HEADER */
 
     .header {
       text-align: center;
@@ -83,9 +81,7 @@
       transform: rotate(-2deg);
     }
 
-    /* --------------------------
-       LANGUAGE BUTTONS
-    -------------------------- */
+    /* LANGUAGE */
 
     .language-box {
       background: var(--light-green);
@@ -106,7 +102,6 @@
       font-weight: 700;
       color: var(--green);
       cursor: pointer;
-      transition: 0.2s;
     }
 
     .lang-btn.active {
@@ -115,9 +110,7 @@
       box-shadow: 0 4px 12px rgba(23,75,58,.18);
     }
 
-    /* --------------------------
-       INTRO
-    -------------------------- */
+    /* INTRO */
 
     .intro {
       text-align: center;
@@ -136,9 +129,7 @@
       font-size: 14px;
     }
 
-    /* --------------------------
-       STEPS
-    -------------------------- */
+    /* STEPS */
 
     .steps {
       display: flex;
@@ -151,11 +142,9 @@
       grid-template-columns: 52px 56px 1fr;
       align-items: center;
       gap: 10px;
-
       border: 2px solid #edf1ec;
       border-radius: 22px;
       padding: 17px 14px;
-
       background: #fff;
       box-shadow: 0 6px 18px rgba(0,0,0,.035);
     }
@@ -164,14 +153,11 @@
       width: 46px;
       height: 46px;
       border-radius: 50%;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       background: #7db570;
       color: white;
-
       font-size: 24px;
       font-weight: 900;
     }
@@ -180,11 +166,9 @@
       width: 52px;
       height: 52px;
       border-radius: 16px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       background: var(--light-green);
       font-size: 29px;
     }
@@ -201,9 +185,7 @@
       margin-top: 3px;
     }
 
-    /* --------------------------
-       HELP
-    -------------------------- */
+    /* HELP */
 
     .help {
       margin-top: 28px;
@@ -230,9 +212,74 @@
       font-size: 14px;
     }
 
-    /* --------------------------
-       FOOTER
-    -------------------------- */
+    /* MENU BUTTON */
+
+    .menu-link {
+      display: grid;
+      grid-template-columns: 74px 1fr 34px;
+      align-items: center;
+      gap: 14px;
+
+      margin-top: 22px;
+      padding: 18px;
+
+      border: 3px solid var(--green);
+      border-radius: 24px;
+
+      text-decoration: none;
+      color: var(--green);
+
+      background:
+        linear-gradient(
+          135deg,
+          #f9fff7,
+          #eef7e9
+        );
+
+      box-shadow: 0 7px 18px rgba(23,75,58,.08);
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .menu-link:active {
+      transform: scale(.98);
+    }
+
+    .menu-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #dfeeda;
+      font-size: 38px;
+    }
+
+    .menu-title {
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .menu-sub {
+      margin-top: 4px;
+      color: var(--gray);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .menu-arrow {
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    /* FOOTER */
 
     footer {
       margin-top: 36px;
@@ -248,10 +295,9 @@
     }
 
     .cheers {
-      font-family: cursive;
-      font-size: 30px;
+      font-family: Georgia, serif;
+      font-size: 42px;
       font-weight: 700;
-      transform: rotate(-3deg);
       display: inline-block;
     }
 
@@ -259,7 +305,10 @@
       color: #d7a917;
     }
 
+    /* MOBILE */
+
     @media (max-width: 420px) {
+
       .page {
         padding-left: 14px;
         padding-right: 14px;
@@ -288,15 +337,38 @@
       .step-title {
         font-size: 16px;
       }
+
+      .menu-link {
+        grid-template-columns: 62px 1fr 26px;
+        padding: 15px;
+      }
+
+      .menu-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 32px;
+      }
+
+      .menu-title {
+        font-size: 19px;
+      }
+
+      .menu-arrow {
+        font-size: 34px;
+      }
     }
+
   </style>
 </head>
+
 
 <body>
 
 <div class="page">
 
+
   <!-- HEADER -->
+
   <header class="header">
 
     <div class="beer-row">
@@ -304,8 +376,13 @@
       <span>🍻</span>
     </div>
 
-    <h1 id="mainTitle">ご注文方法</h1>
-    <h2>How to Order</h2>
+    <h1 id="mainTitle">
+      ご注文方法
+    </h1>
+
+    <h2>
+      How to Order
+    </h2>
 
     <div class="tagline">
       Good Drinks, Good Times!
@@ -314,22 +391,31 @@
   </header>
 
 
-  <!-- LANGUAGE SWITCH -->
+  <!-- LANGUAGE -->
+
   <div class="language-box">
 
-    <button class="lang-btn active" onclick="changeLanguage('ja', this)">
+    <button
+      class="lang-btn active"
+      onclick="changeLanguage('ja', this)">
       🇯🇵 日本語
     </button>
 
-    <button class="lang-btn" onclick="changeLanguage('en', this)">
+    <button
+      class="lang-btn"
+      onclick="changeLanguage('en', this)">
       🇬🇧 English
     </button>
 
-    <button class="lang-btn" onclick="changeLanguage('zh', this)">
+    <button
+      class="lang-btn"
+      onclick="changeLanguage('zh', this)">
       🇨🇳 中文
     </button>
 
-    <button class="lang-btn" onclick="changeLanguage('ko', this)">
+    <button
+      class="lang-btn"
+      onclick="changeLanguage('ko', this)">
       🇰🇷 한국어
     </button>
 
@@ -340,13 +426,21 @@
 
   <section class="intro">
 
-    <div class="intro-title" id="introTitle">
+    <div
+      class="intro-title"
+      id="introTitle">
+
       ご来店ありがとうございます！
+
     </div>
 
-    <div class="intro-text" id="introText">
+    <div
+      class="intro-text"
+      id="introText">
+
       当店はカウンターでご注文・お会計をお願いしています。<br>
       以下の流れでご利用ください。
+
     </div>
 
   </section>
@@ -356,22 +450,35 @@
 
   <main class="steps">
 
+
     <div class="step">
 
-      <div class="number">1</div>
+      <div class="number">
+        1
+      </div>
 
       <div class="icon">
         🪑
       </div>
 
       <div>
-        <div class="step-title" id="step1">
+
+        <div
+          class="step-title"
+          id="step1">
+
           空いている席をご利用ください
+
         </div>
 
-        <div class="step-sub" id="sub1">
+        <div
+          class="step-sub"
+          id="sub1">
+
           Please take any available seat
+
         </div>
+
       </div>
 
     </div>
@@ -379,20 +486,32 @@
 
     <div class="step">
 
-      <div class="number">2</div>
+      <div class="number">
+        2
+      </div>
 
       <div class="icon">
         🧾
       </div>
 
       <div>
-        <div class="step-title" id="step2">
+
+        <div
+          class="step-title"
+          id="step2">
+
           カウンターでご注文ください
+
         </div>
 
-        <div class="step-sub" id="sub2">
+        <div
+          class="step-sub"
+          id="sub2">
+
           Please order at the counter
+
         </div>
+
       </div>
 
     </div>
@@ -400,20 +519,32 @@
 
     <div class="step">
 
-      <div class="number">3</div>
+      <div class="number">
+        3
+      </div>
 
       <div class="icon">
         💴
       </div>
 
       <div>
-        <div class="step-title" id="step3">
+
+        <div
+          class="step-title"
+          id="step3">
+
           ご注文時にお会計をお願いします
+
         </div>
 
-        <div class="step-sub" id="sub3">
+        <div
+          class="step-sub"
+          id="sub3">
+
           Please pay when you order
+
         </div>
+
       </div>
 
     </div>
@@ -421,20 +552,32 @@
 
     <div class="step">
 
-      <div class="number">4</div>
+      <div class="number">
+        4
+      </div>
 
       <div class="icon">
         🍺
       </div>
 
       <div>
-        <div class="step-title" id="step4">
+
+        <div
+          class="step-title"
+          id="step4">
+
           ドリンクはカウンターでお受け取りください
+
         </div>
 
-        <div class="step-sub" id="sub4">
+        <div
+          class="step-sub"
+          id="sub4">
+
           Pick up drinks at the counter
+
         </div>
+
       </div>
 
     </div>
@@ -442,23 +585,36 @@
 
     <div class="step">
 
-      <div class="number">5</div>
+      <div class="number">
+        5
+      </div>
 
       <div class="icon">
         🍽️
       </div>
 
       <div>
-        <div class="step-title" id="step5">
+
+        <div
+          class="step-title"
+          id="step5">
+
           フードはお席までお持ちします
+
         </div>
 
-        <div class="step-sub" id="sub5">
+        <div
+          class="step-sub"
+          id="sub5">
+
           Food will be brought to your table
+
         </div>
+
       </div>
 
     </div>
+
 
   </main>
 
@@ -471,15 +627,62 @@
       🙋
     </div>
 
-    <div class="help-title" id="helpTitle">
+    <div
+      class="help-title"
+      id="helpTitle">
+
       ご不明点はスタッフまで
+
     </div>
 
-    <div class="help-text" id="helpText">
+    <div
+      class="help-text"
+      id="helpText">
+
       お困りの際はお気軽にお声がけください。
+
     </div>
 
   </section>
+
+
+  <!-- MENU -->
+
+  <a
+    class="menu-link"
+    href="https://www.pub-hub.com/index.php/menu/lists/HUB"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    <div class="menu-icon">
+      📖
+    </div>
+
+    <div>
+
+      <div
+        class="menu-title"
+        id="menuTitle">
+
+        メニューはこちら！
+
+      </div>
+
+      <div
+        class="menu-sub"
+        id="menuSub">
+
+        View Our Menu
+
+      </div>
+
+    </div>
+
+    <div class="menu-arrow">
+      ›
+    </div>
+
+  </a>
 
 
   <!-- FOOTER -->
@@ -496,7 +699,9 @@
 
   </footer>
 
+
 </div>
+
 
 
 <script>
@@ -505,7 +710,8 @@ const translations = {
 
   ja: {
 
-    title: "ご注文方法",
+    title:
+      "ご注文方法",
 
     introTitle:
       "ご来店ありがとうございます！",
@@ -533,14 +739,21 @@ const translations = {
       "ご不明点はスタッフまで",
 
     helpText:
-      "お困りの際はお気軽にお声がけください。"
+      "お困りの際はお気軽にお声がけください。",
+
+    menuTitle:
+      "メニューはこちら！",
+
+    menuSub:
+      "View Our Menu"
 
   },
 
 
   en: {
 
-    title: "How to Order",
+    title:
+      "How to Order",
 
     introTitle:
       "Welcome!",
@@ -568,14 +781,21 @@ const translations = {
       "Need help?",
 
     helpText:
-      "Please feel free to ask our staff."
+      "Please feel free to ask our staff.",
+
+    menuTitle:
+      "View Our Menu",
+
+    menuSub:
+      "Tap here to see the menu"
 
   },
 
 
   zh: {
 
-    title: "点单方式",
+    title:
+      "点单方式",
 
     introTitle:
       "欢迎光临！",
@@ -603,14 +823,21 @@ const translations = {
       "如有疑问，请询问工作人员",
 
     helpText:
-      "我们很乐意为您提供帮助。"
+      "我们很乐意为您提供帮助。",
+
+    menuTitle:
+      "查看菜单",
+
+    menuSub:
+      "点击这里查看菜单"
 
   },
 
 
   ko: {
 
-    title: "주문 방법",
+    title:
+      "주문 방법",
 
     introTitle:
       "방문해 주셔서 감사합니다!",
@@ -638,50 +865,96 @@ const translations = {
       "도움이 필요하신가요?",
 
     helpText:
-      "언제든지 직원에게 말씀해 주세요."
+      "언제든지 직원에게 말씀해 주세요.",
+
+    menuTitle:
+      "메뉴 보기",
+
+    menuSub:
+      "여기를 눌러 메뉴를 확인하세요"
 
   }
 
 };
 
 
+
 function changeLanguage(lang, button) {
 
-  const data = translations[lang];
+  const data =
+    translations[lang];
+
 
   document
     .querySelectorAll(".lang-btn")
-    .forEach(btn => btn.classList.remove("active"));
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
 
   button.classList.add("active");
 
 
-  document.getElementById("mainTitle").innerText =
+  document
+    .getElementById("mainTitle")
+    .innerText =
     data.title;
 
-  document.getElementById("introTitle").innerText =
+
+  document
+    .getElementById("introTitle")
+    .innerText =
     data.introTitle;
 
-  document.getElementById("introText").innerHTML =
+
+  document
+    .getElementById("introText")
+    .innerHTML =
     data.introText;
 
 
-  for (let i = 1; i <= 5; i++) {
+  for (
+    let i = 1;
+    i <= 5;
+    i++
+  ) {
 
-    document.getElementById("step" + i).innerText =
+    document
+      .getElementById("step" + i)
+      .innerText =
       data.steps[i - 1];
 
-    document.getElementById("sub" + i).innerText =
+
+    document
+      .getElementById("sub" + i)
+      .innerText =
       data.subs[i - 1];
 
   }
 
 
-  document.getElementById("helpTitle").innerText =
+  document
+    .getElementById("helpTitle")
+    .innerText =
     data.helpTitle;
 
-  document.getElementById("helpText").innerText =
+
+  document
+    .getElementById("helpText")
+    .innerText =
     data.helpText;
+
+
+  document
+    .getElementById("menuTitle")
+    .innerText =
+    data.menuTitle;
+
+
+  document
+    .getElementById("menuSub")
+    .innerText =
+    data.menuSub;
 
 }
 

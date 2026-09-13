@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ご注文方法 | How to Order</title>
+
+  <style>
+    :root {
+      --green: #174b3a;
+      --green2: #2f7a59;
+      --light-green: #eaf4e8;
+      --yellow: #f3c94f;
+      --black: #16211d;
+      --gray: #66706b;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f8faf7;
+      color: var(--black);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "Noto Sans JP",
+        Arial,
+        sans-serif;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: white;
+      padding: 28px 18px 50px;
+    }
+
+    /* --------------------------
+       HEADER
+    -------------------------- */
+
+    .header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .beer-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: clamp(36px, 9vw, 58px);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      color: var(--green);
+    }
+
+    .header h2 {
+      margin: 4px 0 0;
+      color: var(--green2);
+      font-size: clamp(24px, 6vw, 36px);
+      font-weight: 800;
+    }
+
+    .tagline {
+      margin-top: 12px;
+      font-family: cursive;
+      font-size: 18px;
+      transform: rotate(-2deg);
+    }
+
+    /* --------------------------
+       LANGUAGE BUTTONS
+    -------------------------- */
+
+    .language-box {
+      background: var(--light-green);
+      border-radius: 18px;
+      padding: 10px;
+      margin: 24px 0 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 11px 4px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 4px 12px rgba(23,75,58,.18);
+    }
+
+    /* --------------------------
+       INTRO
+    -------------------------- */
+
+    .intro {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .intro-title {
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .intro-text {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* --------------------------
+       STEPS
+    -------------------------- */
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px 56px 1fr;
+      align-items: center;
+      gap: 10px;
+
+      border: 2px solid #edf1ec;
+      border-radius: 22px;
+      padding: 17px 14px;
+
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.035);
+    }
+
+    .number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: #7db570;
+      color: white;
+
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--light-green);
+      font-size: 29px;
+    }
+
+    .step-title {
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .step-sub {
+      color: var(--gray);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* --------------------------
+       HELP
+    -------------------------- */
+
+    .help {
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: 22px;
+      text-align: center;
+      background: var(--green);
+      color: white;
+    }
+
+    .help-icon {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .help-title {
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .help-text {
+      opacity: .9;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* --------------------------
+       FOOTER
+    -------------------------- */
+
+    footer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 2px solid var(--light-green);
+      text-align: center;
+    }
+
+    .languages {
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .cheers {
+      font-family: cursive;
+      font-size: 30px;
+      font-weight: 700;
+      transform: rotate(-3deg);
+      display: inline-block;
+    }
+
+    .yellow {
+      color: #d7a917;
+    }
+
+    @media (max-width: 420px) {
+      .page {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .language-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .step {
+        grid-template-columns: 44px 48px 1fr;
+      }
+
+      .number {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .icon {
+        width: 46px;
+        height: 46px;
+        font-size: 25px;
+      }
+
+      .step-title {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="beer-row">
+      <span>🍺</span>
+      <span>🍻</span>
+    </div>
+
+    <h1 id="mainTitle">ご注文方法</h1>
+    <h2>How to Order</h2>
+
+    <div class="tagline">
+      Good Drinks, Good Times!
+    </div>
+
+  </header>
+
+
+  <!-- LANGUAGE SWITCH -->
+  <div class="language-box">
+
+    <button class="lang-btn active" onclick="changeLanguage('ja', this)">
+      🇯🇵 日本語
+    </button>
+
+    <button class="lang-btn" onclick="changeLanguage('en', this)">
+      🇬🇧 English
+    </button>
+
+    <button class="lang-btn" onclick="changeLanguage('zh', this)">
+      🇨🇳 中文
+    </button>
+
+    <button class="lang-btn" onclick="changeLanguage('ko', this)">
+      🇰🇷 한국어
+    </button>
+
+  </div>
+
+
+  <!-- INTRO -->
+
+  <section class="intro">
+
+    <div class="intro-title" id="introTitle">
+      ご来店ありがとうございます！
+    </div>
+
+    <div class="intro-text" id="introText">
+      当店はカウンターでご注文・お会計をお願いしています。<br>
+      以下の流れでご利用ください。
+    </div>
+
+  </section>
+
+
+  <!-- STEPS -->
+
+  <main class="steps">
+
+    <div class="step">
+
+      <div class="number">1</div>
+
+      <div class="icon">
+        🪑
+      </div>
+
+      <div>
+        <div class="step-title" id="step1">
+          空いている席をご利用ください
+        </div>
+
+        <div class="step-sub" id="sub1">
+          Please take any available seat
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">2</div>
+
+      <div class="icon">
+        🧾
+      </div>
+
+      <div>
+        <div class="step-title" id="step2">
+          カウンターでご注文ください
+        </div>
+
+        <div class="step-sub" id="sub2">
+          Please order at the counter
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">3</div>
+
+      <div class="icon">
+        💴
+      </div>
+
+      <div>
+        <div class="step-title" id="step3">
+          ご注文時にお会計をお願いします
+        </div>
+
+        <div class="step-sub" id="sub3">
+          Please pay when you order
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">4</div>
+
+      <div class="icon">
+        🍺
+      </div>
+
+      <div>
+        <div class="step-title" id="step4">
+          ドリンクはカウンターでお受け取りください
+        </div>
+
+        <div class="step-sub" id="sub4">
+          Pick up drinks at the counter
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">5</div>
+
+      <div class="icon">
+        🍽️
+      </div>
+
+      <div>
+        <div class="step-title" id="step5">
+          フードはお席までお持ちします
+        </div>
+
+        <div class="step-sub" id="sub5">
+          Food will be brought to your table
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- STAFF HELP -->
+
+  <section class="help">
+
+    <div class="help-icon">
+      🙋
+    </div>
+
+    <div class="help-title" id="helpTitle">
+      ご不明点はスタッフまで
+    </div>
+
+    <div class="help-text" id="helpText">
+      お困りの際はお気軽にお声がけください。
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="languages">
+      日本語 ・ English ・ 中文 ・ 한국어
+    </div>
+
+    <div class="cheers">
+      Cheers<span class="yellow">!</span>
+    </div>
+
+  </footer>
+
+</div>
+
+
+<script>
+
+const translations = {
+
+  ja: {
+
+    title: "ご注文方法",
+
+    introTitle:
+      "ご来店ありがとうございます！",
+
+    introText:
+      "当店はカウンターでご注文・お会計をお願いしています。<br>以下の流れでご利用ください。",
+
+    steps: [
+      "空いている席をご利用ください",
+      "カウンターでご注文ください",
+      "ご注文時にお会計をお願いします",
+      "ドリンクはカウンターでお受け取りください",
+      "フードはお席までお持ちします"
+    ],
+
+    subs: [
+      "Please take any available seat",
+      "Please order at the counter",
+      "Please pay when you order",
+      "Pick up drinks at the counter",
+      "Food will be brought to your table"
+    ],
+
+    helpTitle:
+      "ご不明点はスタッフまで",
+
+    helpText:
+      "お困りの際はお気軽にお声がけください。"
+
+  },
+
+
+  en: {
+
+    title: "How to Order",
+
+    introTitle:
+      "Welcome!",
+
+    introText:
+      "Please order and pay at the counter.<br>Follow the steps below.",
+
+    steps: [
+      "Please take any available seat",
+      "Please order at the counter",
+      "Please pay when you order",
+      "Pick up your drinks at the counter",
+      "Food will be brought to your table"
+    ],
+
+    subs: [
+      "Choose any available seat",
+      "Order at the counter",
+      "Payment is made when ordering",
+      "Collect your drinks at the counter",
+      "We will bring your food to your table"
+    ],
+
+    helpTitle:
+      "Need help?",
+
+    helpText:
+      "Please feel free to ask our staff."
+
+  },
+
+
+  zh: {
+
+    title: "点单方式",
+
+    introTitle:
+      "欢迎光临！",
+
+    introText:
+      "本店请在吧台点单并结账。<br>请按照以下步骤用餐。",
+
+    steps: [
+      "请选择空座入座",
+      "请到吧台点单",
+      "点单时请结账",
+      "饮品请在吧台领取",
+      "餐点会送到您的座位"
+    ],
+
+    subs: [
+      "请选择空着的座位",
+      "请在吧台点单",
+      "点单时完成付款",
+      "请在吧台领取饮品",
+      "工作人员会将餐点送到您的座位"
+    ],
+
+    helpTitle:
+      "如有疑问，请询问工作人员",
+
+    helpText:
+      "我们很乐意为您提供帮助。"
+
+  },
+
+
+  ko: {
+
+    title: "주문 방법",
+
+    introTitle:
+      "방문해 주셔서 감사합니다!",
+
+    introText:
+      "주문과 결제는 카운터에서 부탁드립니다.<br>아래 순서대로 이용해 주세요.",
+
+    steps: [
+      "빈 좌석을 이용해 주세요",
+      "카운터에서 주문해 주세요",
+      "주문하실 때 결제해 주세요",
+      "음료는 카운터에서 받아 주세요",
+      "음식은 자리로 가져다드립니다"
+    ],
+
+    subs: [
+      "원하시는 빈 좌석을 이용해 주세요",
+      "카운터에서 주문해 주세요",
+      "주문 시 결제해 주세요",
+      "음료는 카운터에서 받아 주세요",
+      "음식은 직원이 자리로 가져다드립니다"
+    ],
+
+    helpTitle:
+      "도움이 필요하신가요?",
+
+    helpText:
+      "언제든지 직원에게 말씀해 주세요."
+
+  }
+
+};
+
+
+function changeLanguage(lang, button) {
+
+  const data = translations[lang];
+
+  document
+    .querySelectorAll(".lang-btn")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+
+  document.getElementById("mainTitle").innerText =
+    data.title;
+
+  document.getElementById("introTitle").innerText =
+    data.introTitle;
+
+  document.getElementById("introText").innerHTML =
+    data.introText;
+
+
+  for (let i = 1; i <= 5; i++) {
+
+    document.getElementById("step" + i).innerText =
+      data.steps[i - 1];
+
+    document.getElementById("sub" + i).innerText =
+      data.subs[i - 1];
+
+  }
+
+
+  document.getElementById("helpTitle").innerText =
+    data.helpTitle;
+
+  document.getElementById("helpText").innerText =
+    data.helpText;
+
+}
+
+</script>
+
+</body>
+</html>
